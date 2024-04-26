@@ -80,7 +80,7 @@ def initialize_dsu(image_path):
     # this fucntion calls the make set function of dsu to initialize sets in dsu where each node is a parent of itself
     dsu = {}
     target_width,target_height=width_height_resized_image(image_path)
-    no_of_pixels=target_width*target_height 
+    no_of_pixels=target_width*target_height
     dsu=make_set(no_of_pixels) 
     return dsu
 
@@ -98,7 +98,7 @@ def threshold(image_path):
     # this function uses the union and find to find pixels that belong in the same segment/set 
     dsu = initialize_dsu(image_path) 
     dsu_xy = coordinates_dict(image_path)
-    threshold_value = 25 
+    threshold_value = 25
     # the threshold_value is set to compare the rgb color intensity of one pixel with another
     pixels = image_pixels(image_path) 
 
@@ -141,11 +141,11 @@ def no_of_segments(image_path):
 def rgb_dict(image_path):
     # this function creates a dict where keys are (x,y) of each pixel and values are its respective tuple
     pixels=image_pixels(image_path)
-    dsu_rgb = {}
+    dsu_rgb={}
     target_width,target_height=width_height_resized_image(image_path)
     for y in range(target_height):
         for x in range(target_width):
-            dsu_rgb[(x,y)]=None #the  x,y coordinates as key in dictionary 
+            dsu_rgb[(x,y)]=None #the  x,y coordinates as key in the dictionary
     index=0
     for i in dsu_rgb:
         dsu_rgb[i]=pixels[index] #and its respective rgb tuples as values
